@@ -1,0 +1,29 @@
+AllCops:
+  Exclude:
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'
+
+Metrics/LineLength:
+  Max: 125
+  Exclude:
+    - 'config/**/*'
+
+Style/Documentation:
+  Exclude:
+    - 'app/**/*'
+    - 'config/application.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
+
+Style/StderrPuts:
+  Exclude:
+    - 'bin/yarn'
