@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_05_140521) do
+ActiveRecord::Schema.define(version: 2018_08_05_152237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,14 @@ ActiveRecord::Schema.define(version: 2018_08_05_140521) do
     t.index ["id", "type"], name: "index_spree_calculators_on_id_and_type"
   end
 
+  create_table "spree_categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "parent_id"
+    t.integer "soft_position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_countries", id: :serial, force: :cascade do |t|
     t.string "iso_name"
     t.string "iso"
@@ -195,6 +203,18 @@ ActiveRecord::Schema.define(version: 2018_08_05_140521) do
     t.index ["original_return_item_id"], name: "index_spree_inventory_units_on_original_return_item_id"
     t.index ["shipment_id"], name: "index_inventory_units_on_shipment_id"
     t.index ["variant_id"], name: "index_inventory_units_on_variant_id"
+  end
+
+  create_table "spree_items", force: :cascade do |t|
+    t.string "name"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_spree_items_on_category_id"
   end
 
   create_table "spree_line_items", id: :serial, force: :cascade do |t|

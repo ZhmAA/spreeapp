@@ -1,0 +1,11 @@
+<%= form_for [:admin, @category], html: { multipart: true } do |f| %>
+  <%= f.text_field :name %>
+  <%= f.select :parent_id, options_for_select(@categories), include_blank: true %>
+  <%= f.number_field :soft_position %>
+
+  <% unless @category.id.nil? %>
+    <%= f.hidden_field :id, value: @category.id %>
+  <% end %>
+
+  <%= f.submit 'Save' %>
+<% end %>
