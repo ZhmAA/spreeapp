@@ -27,3 +27,38 @@ Style/MixinUsage:
 Style/StderrPuts:
   Exclude:
     - 'bin/yarn'
+
+Naming/PredicateName:
+  Exclude:
+    - 'spec/**/*'
+    - 'app/models/spree/category.rb'
+
+Layout/IndentHash:
+  Exclude:
+    - 'app/services/spree/admin/categories/saving.rb'
+    - 'app/services/spree/admin/items/saving.rb'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/**/*.rb'
+    - 'app/helpers/**/*.rb'
+    - 'app/models/**/*.rb'
+
+Style/EmptyMethod:
+  Exclude:
+    - 'app/controllers/**/*.rb'
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
+Style/RegexpLiteral:
+  Exclude:
+    - 'app/models/spree/item.rb'
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+  MinSize: 5
+
+Metrics/BlockLength:
+  Max: 45
