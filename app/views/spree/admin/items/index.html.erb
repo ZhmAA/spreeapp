@@ -1,0 +1,18 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::Item) %>
+<% end %>
+
+<%= button_link_to 'Create Item', new_admin_item_url, { class: "btn-success", icon: 'add', id: 'admin_new_item' } %>
+
+<table class="table" id="listing_products">
+  <tbody>
+    <% @items.each do |item| %>
+      <tr id="<%= spree_dom_id item %>" data-hook="admin_items_index_rows" class="<%= cycle('odd', 'even') %>">
+        <td><%= link_to item.try(:name), edit_admin_item_path(item) %></td>
+        <td><%= item.category.name %></td>
+        <td><%= image_tag item.image.url %></td>
+        <td><%= link_to 'Destroy item', admin_item_path(item), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
